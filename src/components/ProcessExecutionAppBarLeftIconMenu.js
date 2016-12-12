@@ -12,9 +12,7 @@ import LocalATM from 'material-ui/svg-icons/maps/local-atm'
 import InsertChart from 'material-ui/svg-icons/editor/insert-chart'
 import AttachMoney from 'material-ui/svg-icons/editor/attach-money'
 import Extension from 'material-ui/svg-icons/action/extension'
-import Class from 'material-ui/svg-icons/action/class'
 import Accountbalance from 'material-ui/svg-icons/action/account-balance'
-import Accessibility from 'material-ui/svg-icons/action/accessibility'
 
 
 

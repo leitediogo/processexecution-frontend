@@ -30,32 +30,19 @@ class ProcessExecutionTask extends Component {
         super(props);
         this.state = {
             expanded: false,
-        };
+        }
     }
-
-    handleExpandChange = (expanded) => {
-        this.setState({ expanded: expanded });
-    };
-
-    handleToggle = (event, toggle) => {
-        this.setState({ expanded: toggle });
-    };
 
     handleExpand = () => {
         this.setState({ expanded: true });
-    };
-
-    handleReduce = () => {
-        this.setState({ expanded: false });
-    };
-
-    handlePublish = () => {
-        this.updateTask(this.props.task.key)
-        //window.location.reload()
     }
 
-    updateTask(id) {
-        console.log('updateTask', id)
+    handleClose = () => {
+        this.props.handleCloseTask(this.props.id)
+    }
+
+    handleReject = () => {
+        this.props.handleCloseTask(this.props.id)
     }
 
     render() {
@@ -76,16 +63,17 @@ class ProcessExecutionTask extends Component {
                             />
                         <CardText expandable={true}>
                             <TextField
-                                id="approvalDescription"
-                                hintText="Approval Description"
-                                floatingLabelText="Approval Description"
+                                id="comment"
+                                hintText="Comment"
+                                floatingLabelText="Comment"
+                                fullWidth={true}
                                 />
                             <br />
                         </CardText >
                         <CardActions expandable={true}>
-                            <FlatButton label="Close" onClick={this.handlePublish} />
+                            <FlatButton label="Close" onClick={this.handleClose} />
                             <FlatButton label="Assign To" onClick={this.handleExpand} />
-                            <FlatButton label="Reject" onClick={this.handleExpand} />
+                            <FlatButton label="Reject" onClick={this.handleReject} />
                         </CardActions>
                     </Card>
                 </div>

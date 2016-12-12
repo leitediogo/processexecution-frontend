@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import IconMenu from 'material-ui/IconMenu';
-import MenuItem from 'material-ui/MenuItem';
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import IconMenu from 'material-ui/IconMenu'
+import MenuItem from 'material-ui/MenuItem'
+import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
 import IconButton from 'material-ui/IconButton'
-
-import NotificationsIcon from 'material-ui/svg-icons/social/notifications';
+import NotificationsIcon from 'material-ui/svg-icons/social/notifications'
 
 class ProcessExecutionAppBarRightIconMenu extends Component {
     constructor() {
@@ -28,6 +27,7 @@ class ProcessExecutionAppBarRightIconMenu extends Component {
                         <MenuItem primaryText="Help" />
                         <MenuItem primaryText="Sign out" />
                     </IconMenu>
+
                 </div>
             </MuiThemeProvider>
         )
