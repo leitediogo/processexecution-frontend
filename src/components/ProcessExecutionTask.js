@@ -3,6 +3,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { Card, CardHeader, CardTitle, CardText, CardActions } from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton'
 import TextField from 'material-ui/TextField'
+import { List, ListItem } from 'material-ui/List'
 
 const styles = {
     block: {
@@ -62,12 +63,34 @@ class ProcessExecutionTask extends Component {
                             subtitle={this.props.subject}
                             />
                         <CardText expandable={true}>
+                            <List>
+                                <ListItem
+                                    primaryText="Status"
+                                    secondaryText={this.props.status}
+                                    />
+                            </List>
                             <TextField
-                                id="comment"
-                                hintText="Comment"
-                                floatingLabelText="Comment"
-                                fullWidth={true}
+                                id="status"
+                                hintText="Status"
+                                floatingLabelText="Status"
+                                disabled={true}
+                                value={this.props.status}
                                 />
+                            {this.props.status === 'opened' ?
+                                <TextField
+                                    id="comment"
+                                    hintText="Comment"
+                                    floatingLabelText="Comment"
+                                    fullWidth={true}
+                                    /> : 
+                                    <TextField
+                                    id="comment"
+                                    hintText="Comment"
+                                    floatingLabelText="Comment"
+                                    fullWidth={true}
+                                    disabled={true}
+                                    />
+                                }
                             <br />
                         </CardText >
                         <CardActions expandable={true}>
