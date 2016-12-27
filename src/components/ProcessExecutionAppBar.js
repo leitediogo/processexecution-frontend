@@ -23,7 +23,7 @@ class ProcessExecutionAppBar extends Component {
             <MuiThemeProvider>
                 <div>
                     <AppBar
-                        title={<span style={styles.title}>To do</span>}
+                        title={<span style={styles.title}>Inbox</span>}
                         onTitleTouchTap={this.handleAppBarClick}
                         iconElementRight={<ProcessExecutionAppBarRightIconMenu />}
                         iconElementLeft={<ProcessExecutionAppBarLeftIconMenu />}

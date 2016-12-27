@@ -59,8 +59,8 @@ class ProcessExecutionTask extends Component {
                             avatar={this.props.avatar}
                             />
                         <CardTitle
-                            title={this.props.process}
-                            subtitle={this.props.subject}
+                            title={this.props.subject}
+                            subtitle={this.props.process}
                             />
                         <CardText expandable={true}>
                             <List>
@@ -69,13 +69,6 @@ class ProcessExecutionTask extends Component {
                                     secondaryText={this.props.status}
                                     />
                             </List>
-                            <TextField
-                                id="status"
-                                hintText="Status"
-                                floatingLabelText="Status"
-                                disabled={true}
-                                value={this.props.status}
-                                />
                             {this.props.status === 'opened' ?
                                 <TextField
                                     id="comment"
