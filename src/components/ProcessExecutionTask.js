@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { Card, CardHeader, CardTitle, CardText, CardActions } from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton'
 import TextField from 'material-ui/TextField'
@@ -48,52 +47,50 @@ class ProcessExecutionTask extends Component {
 
     render() {
         return (
-            <MuiThemeProvider>
-                <div>
-                    <Card zDepth={1} style={styles.card}>
-                        <CardHeader
-                            title="Assigned To"
-                            subtitle={this.props.assignedTo}
-                            actAsExpander={true}
-                            showExpandableButton={true}
-                            avatar={this.props.avatar}
+            <div>
+                <Card style={styles.card}>
+                    <CardHeader
+                        title="Assigned To"
+                        subtitle={this.props.assignedTo}
+                        actAsExpander={true}
+                        showExpandableButton={true}
+                        avatar={this.props.avatar}
+                    />
+                    <CardTitle
+                        title={this.props.subject}
+                        subtitle={this.props.process}
+                    />
+                    <CardText expandable={true}>
+                        <List>
+                            <ListItem
+                                primaryText="Status"
+                                secondaryText={this.props.status}
                             />
-                        <CardTitle
-                            title={this.props.subject}
-                            subtitle={this.props.process}
+                        </List>
+                        {this.props.status === 'opened' ?
+                            <TextField
+                                id="comment"
+                                hintText="Comment"
+                                floatingLabelText="Comment"
+                                fullWidth={true}
+                            /> :
+                            <TextField
+                                id="comment"
+                                hintText="Comment"
+                                floatingLabelText="Comment"
+                                fullWidth={true}
+                                disabled={true}
                             />
-                        <CardText expandable={true}>
-                            <List>
-                                <ListItem
-                                    primaryText="Status"
-                                    secondaryText={this.props.status}
-                                    />
-                            </List>
-                            {this.props.status === 'opened' ?
-                                <TextField
-                                    id="comment"
-                                    hintText="Comment"
-                                    floatingLabelText="Comment"
-                                    fullWidth={true}
-                                    /> : 
-                                    <TextField
-                                    id="comment"
-                                    hintText="Comment"
-                                    floatingLabelText="Comment"
-                                    fullWidth={true}
-                                    disabled={true}
-                                    />
-                                }
-                            <br />
-                        </CardText >
-                        <CardActions expandable={true}>
-                            <FlatButton label="Close" onClick={this.handleClose} />
-                            <FlatButton label="Assign To" onClick={this.handleExpand} />
-                            <FlatButton label="Reject" onClick={this.handleReject} />
-                        </CardActions>
-                    </Card>
-                </div>
-            </MuiThemeProvider>
+                        }
+                        <br />
+                    </CardText >
+                    <CardActions expandable={true}>
+                        <FlatButton label="Close" onClick={this.handleClose} />
+                        <FlatButton label="Assign To" onClick={this.handleExpand} />
+                        <FlatButton label="Reject" onClick={this.handleReject} />
+                    </CardActions>
+                </Card>
+            </div>
 
         );
     }

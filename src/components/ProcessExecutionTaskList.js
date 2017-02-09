@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import ProcessExecutionTask from './ProcessExecutionTask'
 import avatar from '../images/avatar.jpg'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import FlatButton from 'material-ui/FlatButton'
+import Paper from 'material-ui/Paper'
 
 class ProcessExecutionTaskList extends Component {
 
@@ -39,46 +39,46 @@ class ProcessExecutionTaskList extends Component {
 
         let tasks = openTasks.map((task) => {
             return (
-                <ProcessExecutionTask
-                    subject={task.subject}
-                    key={task.id}
-                    id={task.id}
-                    process={task.process}
-                    assignedTo={task.assignedTo}
-                    avatar={avatar}
-                    handleCloseTask={this.handleCloseTask.bind(this)}
-                    status={task.status}
+                <Paper zDepth={3}>
+                    <ProcessExecutionTask
+                        subject={task.subject}
+                        key={task.id}
+                        id={task.id}
+                        process={task.process}
+                        assignedTo={task.assignedTo}
+                        avatar={avatar}
+                        handleCloseTask={this.handleCloseTask.bind(this)}
+                        status={task.status}
                     />
+                </Paper>
             )
         })
 
         // console.log(cards)
         return (
-            <MuiThemeProvider>
-                <div >
-                    <br />
-                    <div style={{ display: 'flex', justifyContent: 'center' }}>
-                        <FlatButton
-                            label="Opened Tasks"
-                            labelPosition="after"
-                            onClick={() => this.setState({ filter: 'opened' })}
-                            />
-                        <FlatButton
-                            label="Closed Tasks"
-                            labelPosition="after"
-                            onClick={() => this.setState({ filter: 'closed' })}
-                            />
-                    </div>
-                    <br />
-                    {tasks}
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
+            <div >
+                <br />
+                <div style={{ display: 'flex', justifyContent: 'center' }}>
+                    <FlatButton
+                        label="Opened Tasks"
+                        labelPosition="after"
+                        onClick={() => this.setState({ filter: 'opened' })}
+                    />
+                    <FlatButton
+                        label="Closed Tasks"
+                        labelPosition="after"
+                        onClick={() => this.setState({ filter: 'closed' })}
+                    />
                 </div>
-            </MuiThemeProvider>
+                <br />
+                {tasks}
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+            </div>
         )
     }
 }

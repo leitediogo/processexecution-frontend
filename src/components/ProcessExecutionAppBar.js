@@ -1,36 +1,34 @@
 import React, { Component } from 'react'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 import ProcessExecutionAppBarRightIconMenu from './ProcessExecutionAppBarRightIconMenu'
 import ProcessExecutionAppBarLeftIconMenu from './ProcessExecutionAppBarLeftIconMenu'
-import {browserHistory} from 'react-router'
+import { browserHistory } from 'react-router'
 
 const styles = {
-  title: {
-    cursor: 'pointer'
-  }
+    title: {
+        cursor: 'pointer'
+    }
 }
 
 class ProcessExecutionAppBar extends Component {
 
-   handleAppBarClick(){
+    handleAppBarClick() {
         console.log('handleAppBarClick')
-         browserHistory.push('/')
+        browserHistory.push('/')
     }
 
     render() {
         return (
-            <MuiThemeProvider>
-                <div>
-                    <AppBar
-                        title={<span style={styles.title}>Inbox</span>}
-                        onTitleTouchTap={this.handleAppBarClick}
-                        iconElementRight={<ProcessExecutionAppBarRightIconMenu />}
-                        iconElementLeft={<ProcessExecutionAppBarLeftIconMenu />}
-                        />
-                </div>
-            </MuiThemeProvider>
+            <div>
+                <AppBar
+                    title={<span style={styles.title}>Inbox</span>}
+                    onTitleTouchTap={this.handleAppBarClick}
+                    iconElementRight={<ProcessExecutionAppBarRightIconMenu />}
+                    iconElementLeft={<ProcessExecutionAppBarLeftIconMenu />}
+                />
+            </div>
         )
     }
 }
+
 export default ProcessExecutionAppBar
